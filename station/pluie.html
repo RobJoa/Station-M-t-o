@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantité de pluie</title>
+  <link rel="stylesheet" href="station.css">
+</head>
+<body>
+
+  <header class="hero">
+    <h1>Quantité de pluie</h1>
+  </header>
+<!-- Bouton pour afficher le menu -->
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+
+
+  <section class="section">
+    <h2>Données en temps réel de la quantité de pluie</h2>
+		<p>🌧️ Quantité de pluie : {{pluie}}
+  </section>
+
+<script src="js/station.js"></script>
+<script>
+  function toggleMenu() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('active');
+  }
+</script>
+</body>
+</html>

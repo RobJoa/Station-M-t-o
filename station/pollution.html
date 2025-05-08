@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pollution de l'air</title>
+  <link rel="stylesheet" href="station.css">
+</head>
+<body>
+
+  <header class="hero">
+    <h1>Pollution de l'air</h1>
+  </header>
+<!-- Bouton pour afficher le menu -->
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+
+
+  <section class="section">
+    <h2>Données en temps réel de la pollution</h2>
+		<p>🏭 Pollution : {{pollution}}
+  </section>
+
+<script src="js/station.js"></script>
+<script>
+  function toggleMenu() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('active');
+  }
+</script>
+</body>
+</html>

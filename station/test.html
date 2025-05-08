@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu latéral test</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* MENU LATERAL */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 220px;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      z-index: 1000;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      padding-top: 20px;
+    }
+
+    .sidebar.active {
+      transform: translateX(0);
+    }
+
+    .menu-toggle {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1100;
+      font-size: 28px;
+      color: white;
+      background-color: rgba(0,0,0,0.6);
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin-top: 60px;
+    }
+
+    .nav-links li a {
+      display: block;
+      padding: 15px 20px;
+      color: white;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .nav-links li a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Exemple de contenu principal */
+    .content {
+      padding: 100px 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Bouton pour afficher le menu -->
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <!-- Menu latéral -->
+  <div class="sidebar" id="sidebar">
+    <ul class="nav-links">
+      <li><a href="#">🌞 Luminosité</a></li>
+      <li><a href="#">💨 Vitesse du vent</a></li>
+      <li><a href="#">🧭 Orientation du vent</a></li>
+      <li><a href="#">🌧️ Quantité de pluie</a></li>
+      <li><a href="#">🏭 Pollution</a></li>
+    </ul>
+  </div>
+
+  <!-- Contenu principal -->
+  <div class="content">
+    <h1>Bienvenue sur la station météo</h1>
+    <p>Ce site affiche les données météo. Cliquez sur le menu ☰ pour naviguer.</p>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Données du jour</title>
+  <link rel="stylesheet" href="station.css" />
+</head>
+<body>
+
+  <!-- Menu injecté automatiquement -->
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <header class="hero">
+    <h1>Données du jour</h1>
+  </header>
+
+  <main class="content">
+    <section class="section">
+      <h2>Date et heure d'aujourd'hui</h2>
+      <p id="horloge"></p>
+    </section>
+
+    <section class="section">
+      <h2>Météo actuelle</h2>
+      <ul id="donnees-jour"></ul>
+    </section>
+
+    <section class="section">
+      <h2>Historique de la température</h2>
+      <canvas id="graphTemp" width="400" height="200"></canvas>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/station.js"></script>
+  <script src="js/horloge.js"></script>
+  <script src="js/mockData.js"></script>
+
+  <script>
+    function toggleMenu() {
+      const sidebar = document.getElementById('sidebar');
+      if (sidebar) sidebar.classList.toggle('active');
+    }
+
+    // Affichage du graphique de température
+    const ctx = document.getElementById('graphTemp').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['00h', '01h', '02h', '03h', '04h', '05h', '06h', '07h', '08h', '09h', '10h', '11h', '12h', '13h', '14h', '15h', '16h', '17h', '18h', '19h', '20h', '21h', '22h', '23h', '00h'],
+        datasets: [{
+          label: 'Température (°C)',
+          data: [12, 12, 12.5, 13.5, 14, 14.5, 15, 15, 15.5, 16, 16.5, 16.5, 18, 20, 21, 21.5, 21, 19, 18, 17, 16, 15.5, 15, 14.5, 14],
+          borderColor: 'rgba(255, 99, 132, 1)',
+          fill: false,
+          tension: 0.3
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: true }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
